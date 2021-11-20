@@ -1,6 +1,6 @@
 package Programmers;
 
-public class RottoNumber {
+public class RottoNumber77484 {
     // 로또의 순위를 출력해주는 메소드
     // 1. 로또 숫자가 0일경우 zero_cnt를 증가시킨다.
     // 2. 로또 숫자가 당첨 숫자와 일치할 경우 win_cnt를 증가시킨다.

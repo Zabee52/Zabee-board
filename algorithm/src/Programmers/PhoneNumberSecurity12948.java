@@ -1,6 +1,6 @@
 package Programmers;
 
-public class PhoneNumberSecurity {
+public class PhoneNumberSecurity12948 {
     // 뒷자리 4자리만 별표로 숨기기
     // https://programmers.co.kr/learn/courses/30/lessons/12948
 

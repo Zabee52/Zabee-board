@@ -1,6 +1,6 @@
 package Programmers;
 
-public class StrToInt {
+public class StrToInt12925 {
     // 숩다 수워
     // https://programmers.co.kr/learn/courses/30/lessons/12925
 

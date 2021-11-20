@@ -1,6 +1,6 @@
 package Programmers;
 
-public class ThreeNumberPrime {
+public class ThreeNumberPrime12977 {
     // 배열 속 숫자 세 개를 더했을 때 소수인 수의 목록을 출력하는 알고리즘이다.
     // 풀 때 사중포문을 썼는데 별다른 방안은 없는 것 같다.
     // https://programmers.co.kr/learn/courses/30/lessons/12977

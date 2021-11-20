@@ -3,7 +3,7 @@ package Programmers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecommandId {
+public class RecommandId72410 {
     // 스텝을 밟아나가며 처리해주면 되는 문제이지만 양이 많아서 꽤나 오래걸리는 문제다.
     // 이런건 반복숙달로 속도를 끌어올리는 것 말고는 뾰족한 수가 없을 것 같다.
     // https://programmers.co.kr/learn/courses/30/lessons/72410

@@ -1,6 +1,6 @@
 package Programmers;
 
-public class ReverseTernary {
+public class ReverseTernary68935 {
     // 삼진수로 바꾸고 앞뒤 뒤집어서 다시 십진수로 변환하기
     // parse 시리즈의 진수변환 기능을 모른다면 아래와 같은 과정을 거쳐야 한다.
     // https://programmers.co.kr/learn/courses/30/lessons/68935

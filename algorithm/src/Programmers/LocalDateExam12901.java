@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class LocalDateExam {
+public class LocalDateExam12901 {
     // LocalDate는 처음 써보는거라 친해져야할 필요가 있는 것 같다.
     // https://programmers.co.kr/learn/courses/30/lessons/12901
 

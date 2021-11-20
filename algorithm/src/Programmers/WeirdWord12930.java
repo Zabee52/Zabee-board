@@ -1,6 +1,6 @@
 package Programmers;
 
-public class WeirdWord {
+public class WeirdWord12930 {
     // 이 문제와 관련된 내용은 회고록에서 이상한문자열 찾기 관련에 적어놨음. 실수할 수 있는 부분!
     // https://programmers.co.kr/learn/courses/30/lessons/12930
     // 문제가 발생함 : https://dazbee.tistory.com/10?category=1034426
