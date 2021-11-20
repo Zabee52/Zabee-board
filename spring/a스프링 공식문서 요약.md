@@ -1,4 +1,4 @@
-<center>Spring을 이루는 핵심 요소</center>
+Spring을 이루는 핵심 요소
 ======
 ## IoC 컨테이너
 IoC 컨테이너(Inversion of Control Container)?
