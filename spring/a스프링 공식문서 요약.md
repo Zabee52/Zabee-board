@@ -25,7 +25,8 @@ Spring을 이루는 핵심 요소
 `ApplicationContext` 인터페이스의 여러 구현 방식은 스프링과 함께 제공됩니다. stand-alone 응용 프로그램에서는 일반적으로 [ClassPathXmlApplicationContext](https://docs.spring.io/spring-framework/docs/5.3.13/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html) 또는 [FIleSystemXmlApplicationContext](https://docs.spring.io/spring-framework/docs/5.3.13/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html)를 생성합니다.<br>
 XML은 구성 메타데이터를 정의하는 것이 일반적이었으나, Java annotaions 또는 Java code를 이용해 선언적으로 활성화 할 수 있는 소량의 XML 구성을 제공하고 있기 떄문에, Java annotaions나 code를 이용해 컨테이너에게 지시할 수 있습니다.<br>
 
-대부분의 애플리케이션 시나리오에서 하나 이상의 Spring IoC 컨테이너 인스턴스를 인스턴스화하는 데 명시적 사용자 코드가 필요하지 않습니다. 예를 들어, 웹 애플리케이션 시나리오에서 애플리케이션의 `web.xml` 파일에 있는 상용어 웹 설명자 XML의 간단한 8줄이면 충분합니다([편리한 웹 애플리케이션에서의 ApplicationContext 인스턴스화](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#context-create). [Spring Tools for Eclipse](https://spring.io/tools)(이클립스 지원 개발 환경)를 사용할 경우 마우스 클릭 몇 번 또는 키 입력만으로 이 상용구 구성을 쉽게 만들 수 있습니다.<br>
+대부분의 애플리케이션 시나리오에서 하나 이상의 Spring IoC 컨테이너 인스턴스를 인스턴스화하는 데 명시적 사용자 코드가 필요하지 않습니다. 예를 들어, 웹 애플리케이션 시나리오에서 애플리케이션의 `web.xml` 파일에 있는 상용어 웹 설명자 XML의 간단한 8줄이면 충분합니다([편리한 웹 애플리케이션에서의 ApplicationContext 인스턴스화](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#context-create)).<br>
+[Spring Tools for Eclipse](https://spring.io/tools)(이클립스 지원 개발 환경)를 사용할 경우 마우스 클릭 몇 번 또는 키 입력만으로 이 상용구 구성을 쉽게 만들 수 있습니다.<br>
 
 다음 다이어그램은 스프링 작동 방식을 개괄적으로 보여줍니다. 응용 프로그램 클래스는 구성 메타데이터와 결합되므로 `ApplicationContext`가 생성되고 초기화되면 완전히 구성되고 실행 가능한 시스템 또는 응용 프로그램을 갖게 됩니다.
 ![Figure 1. The Spring IoC Container](https://docs.spring.io/spring-framework/docs/current/reference/html/images/container-magic.png)<br>
