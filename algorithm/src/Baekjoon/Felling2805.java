@@ -28,154 +28,40 @@ public class Felling2805 {
      */
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        Scanner in = new Scanner(System.in);
-
-        int N = in.nextInt();
-        int M = in.nextInt();
-
-        int[] tree = new int[N];
-
-        int min = 0;
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[] trees = new int[n];
         int max = 0;
+        int min = 0;
 
-        for(int i = 0; i < N; i++) {
-            tree[i] = in.nextInt();
+        for (int i = 0; i < trees.length; i++) {
+            trees[i] = sc.nextInt();
 
-            /*
-             * 나무들 중 최댓값을 구하기 위해 매 입력 때마다 max 변수와 비교하여
-             * 입력 받은 나무가 max보다 클 경우 max 값을 해당 나무의 높이로 갱신해준다.
-             */
-            if(max < tree[i]) {
-                max = tree[i];
+            if (trees[i] > max) {
+                max = trees[i];
             }
         }
 
-        // 이분 탐색 (upper bound)
-        while(min < max) {
-
-            int mid = (min + max) / 2;
+        //이분탐색 시작
+        while (max > min) {
+            int mid = (max + min) / 2;
             long sum = 0;
-            for(int treeHeight : tree) {
 
-                /*
-                 *  tree의 잘린 길이 = tree의 높이 - 자르는 위치(mid)
-                 *  tree의 잘린 길의의 합을 구한다.
-                 *  이 때 자르는 위치가 주어진 나무의 높이보다 클 수 있기 때문에
-                 *  0 이하인 경우(=음수)에는 합산을 하지 않고 양수만 합산하도록 해야한다.
-                 */
-                if(treeHeight - mid > 0) {
-                    sum += (treeHeight - mid);
+            for(int tree: trees){
+                if (tree > mid) {
+                    sum += (tree - mid);
                 }
             }
 
-
-            /*
-             * 자른 나무 길의의 합이 M보다 작다는 것은
-             * 자르는 위치(높이)가 높다는 의미이므로 높이를 낮춰야 한다.
-             * 즉, 상한(max)를 줄여야 한다.
-             */
-            if(sum < M) {
+            if (sum < m) {
                 max = mid;
-            }
-
-            /*
-             * 자른 나무 길이의 합이 M보다 크다는 것은
-             * 자르는 위치(높이)가 낮다는 의미이므로 높이를 높여야 한다.
-             * 또한, 같을 경우에는 최대한 적게 자르기 위해 자르는 높이를
-             * 높여야 하므로 하한(min)을 올려야 한다.
-             */
-            else {
+            } else {
                 min = mid + 1;
             }
         }
 
-        System.out.println(min - 1);
-
+        System.out.println(min-1);
     }
 }
-
-
-
-
-
-
-//    아래는 이분탐색 알고리즘에 대해 잘 모르는 채로 풀어서 완전 꼬인 코드. 폐기했습니다
-    // 이 코드의 문제점 : 값이 같을때 처리가 안 됨
-//    static long remainM = -1000000000;
-//    static long thatH = 0;
-//
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        // 나무의 수 N
-//        int n = sc.nextInt();
-//        // 가져갈 나무의 길이 M
-//        long m = sc.nextInt();
-//        // 나무의 높이들 tree_h
-//        int[] tree_h = new int[n];
-//        // 이분탐색을 위한 변수 선언
-//        int maxHeight = 0;
-//        int minHeight = 1000000000;
-//        // 톱날의 높이 h
-//        int h = 0;
-//
-//        for (int i = 0; i < n; i++) {
-//            tree_h[i] = sc.nextInt();
-//            if (tree_h[i] > maxHeight) {
-//                maxHeight = tree_h[i];
-//            }
-//            if (tree_h[i] < minHeight) {
-//                minHeight = tree_h[i];
-//            }
-//        }
-//        // 나무 높이의 평균값을 가짐
-//        h = (maxHeight + minHeight) / 2;
-//        if (minHeight == maxHeight) {
-//            if(!(tree_h[0]*n == m)){
-//                thatH = (tree_h[0]*n) / m;
-//            }
-//        }
-//
-//        /*
-//            1. 중간값으로 먼저 자름
-//            2. 원하는만큼 얻는데 성공했으면 min = h; h = (max+min)/2;
-//            2-1. 실패했으면 max = h; h = (max+min)/2;
-//            3. 성공했을시 남은 m이 가장 높은값을 remainM에 저장하고 당시의 높이값을 thatH에 저장.
-//         */
-//        while (maxHeight != minHeight) {
-//            if (felling(m, tree_h, h)) {
-//                minHeight = h + 1;
-//            } else {
-//                maxHeight = h-1;
-//            }
-//            h = (maxHeight + minHeight) / 2;
-//        }
-//
-//        if (n == 1) {
-//            thatH = tree_h[0] - m;
-//        }
-//        System.out.println(thatH);
-//    }
-//
-//    static boolean felling(long m, int[] tree_h, int h) {
-//        boolean result = false;
-//
-//        for (int i = 0; i < tree_h.length; i++) {
-//            if (tree_h[i] <= h) {
-//                continue;
-//            } else {
-//                m -= tree_h[i] - h;
-//            }
-//        }
-//        if (m <= 0) {
-//            if (m > remainM) {
-//                remainM = m;
-//                thatH = h;
-//            }
-//            result = true;
-//        }
-//        System.out.println("H가 " + h + "일 때의 M : " + m);
-//        return result;
-//    }
-//
-//}
