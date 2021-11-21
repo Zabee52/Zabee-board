@@ -56,7 +56,7 @@ Spring IoC Container는 하나 이상의 빈(bean)을 관리한다. 이러한 Be
 
 **테이블 1. 빈 정의(The bean definition)**<br>
 
-특정 빈을 생성하는 방법에 대한 정보가 포함된 빈 정의 외에도, `ApplicationContext` 구현에서는 사용자가 컨테이너 외부에 생성된 기존 개체의 등록할 수 있다.<br>
+`ApplicationContext` 구현에서는 특정 빈을 생성하는 방법에 대한 정보가 포함된 빈 정의 외에도 사용자가 컨테이너 외부에 생성된 기존 개체의 등록하는 것이 허용된다.<br>
 이것은 `DefaultListableBeanFactory` 구현을 반환하는 `getBeanFactory()` 메소드를 통해 `ApplicationContext`의 `BeanFactory`에 접근함으로써 수행된다.<br>
 `DefaultListableBeanFactory`는 `registerSingleton(..)` 및 `registerBeanDefinition(..)` 메소드를 통해 등록을 지원한다.<br>
 그러나, 일반적인 응용 프로그램은 일반 빈 정의 메타데이터를 통해 정의된 빈에서만 작동한다.
