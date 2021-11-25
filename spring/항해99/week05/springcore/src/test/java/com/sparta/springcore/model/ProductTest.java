@@ -10,7 +10,6 @@ class ProductTest {
     @Nested
     @DisplayName("회원이 요청한 관심상품 객체 생성")
     class CreateUserProduct {
-
         private Long userId;
         private String title;
         private String image;
