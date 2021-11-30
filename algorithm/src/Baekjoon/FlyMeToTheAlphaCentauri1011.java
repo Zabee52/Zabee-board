@@ -92,6 +92,15 @@ public class FlyMeToTheAlphaCentauri1011 {
                 (25 - 16) % 2 != 0. (25 - 16) / 2 + 1 + 16 회째(21) 에서 증가함.
 
             맞는 거 같은데? 해본다.
+
+            규칙 정리
+
+            1. 숫자 배열에서 가장 높은 숫자는 제곱근을 취한 뒤 소수점을 버린 값
+            2. 제곱수와 제곱수 사이에서는 필요한 이동 횟수가 총 두 번 바뀜 ex) 9와 16 사이에서는 5 ~ 7회의 이동이 필요하다.
+            2-1. 바꿔 말하자면 제곱근에서 소수 버린값 * 2 +-1 정도에서 머문다는 뜻
+            2-2. 정확히는 제곱수일 경우 제곱근 * 2 - 1,
+                 이전 제곱수 + 제곱근 - 1 까지는 제곱근 * 2,
+                 다음 제곱수 - 제곱근 까지는 제곱근 * 2 +1.
          */
         Scanner sc = new Scanner(System.in);
 
@@ -104,6 +113,23 @@ public class FlyMeToTheAlphaCentauri1011 {
             coordinate[i][1] = sc.nextInt();
         }
 
-        // Math.pow(Math.sqrt(높은 수 - 낮은 수),2) == Math.sqrt(높은 수 - 낮은 수)
+        for(int i = 0; i < t; i++){
+            // 거리 = 높은 수 - 낮은 수
+            long distance = coordinate[i][1] - coordinate[i][0];
+
+            // 1. 숫자 배열에서 가장 높은 숫자는 제곱근을 취한 뒤 소수점을 버린 값이다. ex) 9 ~ 15 : 제일 높은 숫자가 3임
+            long maxNum = (long)Math.sqrt(distance);
+
+            // 2. maxNum과 거리의 제곱근이 일치할 경우 : (maxNum * 2) -1  ex) 9면 총 5회 필요. 3*2-1 = 5. ok
+            if(maxNum == Math.sqrt(distance)) {
+                System.out.println(2 * maxNum - 1);
+            }else if(distance <= Math.pow(maxNum, 2) + maxNum) {
+                // 이전 제곱수(제곱근^2) + 제곱근 - 1 까지는 제곱근 * 2. ex) 10이면 3 * 3 + 3 - 1 = 12 보다 작음. 총 6회 필요. 3*3 = 6. ok
+                System.out.println(2 * maxNum);
+            }else {
+                // 그 외의 경우(다음 제곱수 - 제곱근 까지는 제곱근 * 2 + 1). ex) 14면 12보다 큼. 총 7회 필요. 3*3+1 = 7. ok.
+                System.out.println(2 * maxNum + 1);
+            }
+        }
     }
 }

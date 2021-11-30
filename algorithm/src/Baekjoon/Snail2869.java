@@ -28,8 +28,12 @@ public class Snail2869{
             V = 일수 * (A-B)
             일수 = V / (A-B)
 
-            V만큼 B만큼 오버했다고 계산했을때가 위의 수식
+            B만큼 오버했다고 계산했을때가 위의 수식
             (V-B) / (A-B)
+
+            !! (V-B)%(A-B) != 0 이라는 뜻은, (V-B)/(A-B)일만큼 오르고도 (A-B) 이하의 높이가 남았다는 뜻. = 다음날 낮에 정상에 오름. 그래서 +1
+            A = 3 B = 1 V = 8 대입해보면, 7 % 2 != 0 이므로 7/2 + 1 = 4(정답)
+            A = 3 B = 1 V = 11 대입해보면, 10 % 2 == 0 이므로 10/2 = 5(정답)
          */
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
