@@ -59,7 +59,7 @@ public class Turret1002 {
             }else if(distance == Math.pow(cho[i][2] + paek[i][2],2) ||
                     distance == Math.pow(cho[i][2] - paek[i][2],2)){
                 // cho와 paek의 거리가 r의 합과 같을 때 = 원이 외접할 때(한 점에서 외부에서 만날 때)
-                // cho와 paek의 거리가 r의 합과 같을 때 = 원이 내접할 때(한 점에서 내부에서 만날 때)
+                // cho와 paek의 거리가 r 사이의 거리와 같을 때 = 원이 내접할 때(한 점에서 내부에서 만날 때)
                 System.out.println(1);
             }else{
                 // 그 외의 경우
