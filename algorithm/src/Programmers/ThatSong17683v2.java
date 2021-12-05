@@ -22,6 +22,10 @@ public class ThatSong17683v2 {
         음악 제목은 ',' 이외의 출력 가능한 문자로 표현된 길이 1 이상 64 이하의 문자열이다.
         악보 정보는 음 1개 이상 1439개 이하로 구성되어 있다.
         https://programmers.co.kr/learn/courses/30/lessons/17683
+
+        아잇 너무 어렵네
+        논리는 30분도 안 돼서 완성했는데 그걸 풀어내는데 5시간이 걸렸다. 실화인가?
+        많이 써보면서 좀 배워나가야 할 것 같다. 응애는 응애다.
      */
 
     public String solution(String m, String[] musicinfos) {
@@ -35,27 +39,28 @@ public class ThatSong17683v2 {
 
         for (String musicinfo : musicinfos) {
             String[] splitInfo = musicinfo.split(",");
+
             LocalTime start = LocalTime.parse(splitInfo[0], formatter);
             LocalTime end = LocalTime.parse(splitInfo[1], formatter);
             int playTime = (int) ChronoUnit.MINUTES.between(start, end);
             String name = splitInfo[2];
             StringBuilder melody = new StringBuilder();
+
             // # 붙은 문자열들 모두 치환하기
             splitInfo[3] = changeSharp(splitInfo[3]);
 
-            // 23:59 ~ 00:01 과 같이 다음날로 넘어가는 경우 하루(1440)을 더해서 계산
+            // 23:59 ~ 00:00 과 같이 다음날로 넘어가는 경우 하루(1440)을 더해서 계산
             if (playTime < 0) {
                 playTime += 1440;
             }
-
 
             int melodyLen = splitInfo[3].length();
 
             if (playTime > melodyLen) {
                 // 음악의 플레이타임보다 음악이 짧을 경우
                 // 반복재생 길이만큼 melody 늘리기.
-                melody.append(splitInfo[3].repeat(playTime / melodyLen));
                 // 나머지 문자열 뒤에 붙이기.
+                melody.append(splitInfo[3].repeat(playTime / melodyLen));
                 melody.append(splitInfo[3], 0, playTime % splitInfo[3].length());
             } else {
                 // 음악의 플레이타임보다 음악이 길 경우
@@ -63,7 +68,6 @@ public class ThatSong17683v2 {
             }
 
             // 일치하는 음악 탐색
-            // AAB를 찾고싶을 때 AAB#이 있으면 문제가 발생함. 찾는 문자열 뒤에 #이 붙은건 전부 제거함.
             if (melody.toString().contains(m) && playTime > resultTime) {
                 result = name;
                 resultTime = playTime;
