@@ -112,7 +112,6 @@ public class FlyMeToTheAlphaCentauri1011 {
             coordinate[i][0] = sc.nextInt();
             coordinate[i][1] = sc.nextInt();
         }
-
         for(int i = 0; i < t; i++){
             // 거리 = 높은 수 - 낮은 수
             long distance = coordinate[i][1] - coordinate[i][0];
