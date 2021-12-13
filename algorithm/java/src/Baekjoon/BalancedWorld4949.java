@@ -1,9 +1,6 @@
 package Baekjoon;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class BalancedWorld4949 {
     /*
@@ -52,14 +49,14 @@ public class BalancedWorld4949 {
                 if(c == '(' || c == '['){
                     stack.push(c);
                 }else if(c == ')'){
-                    if(stack.size() == 0 || stack.peek() == '['){
+                    if(stack.isEmpty() || stack.peek() == '['){
                         result = "no";
                         break;
                     }else{
                         stack.pop();
                     }
                 }else if(c == ']'){
-                    if(stack.size() == 0 || stack.peek() == '('){
+                    if(stack.isEmpty() || stack.peek() == '('){
                         result = "no";
                         break;
                     }else{

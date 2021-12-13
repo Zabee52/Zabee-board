@@ -60,6 +60,7 @@ public class Vps9012 {
                     stack.push(c);
                 }else{
                     if(stack.isEmpty()){
+                        // ()())
                         res = "NO";
                         break;
                     }else{
@@ -68,6 +69,7 @@ public class Vps9012 {
                 }
             }
 
+            // ()()(
             if(!stack.isEmpty()){
                 res = "NO";
             }
