@@ -16,6 +16,13 @@ supply_supplies = [20, 5, 10]
 supply_recover_k = 30
 
 def get_minimum_count_of_overseas_supply(stock, dates, supplies, k):
+    # dates[i] <= stock : 다음 주기까지 여유가 있을 경우 일단 힙에 넣음(heappush)
+    # 핵심은 힙에 들어간 순간 어떤 날짜에 들어간 값인지 알 필요가 없어진다는 점임. 집어넣을 수 있는 후보군에 속한다는 뜻이기 때문에.
+    # 힙에 데이터를 넣는 과정에서 외부의 변수인 last_added_date_index를 더해주는데, 이렇게 함으로써 현재 모인 후보군 다음의 인덱스를 가져올 수 있음.
+    #
+    # 그렇게 힙에 들어간 후보들 중 가장 큰 값을 취하고(heappop)
+    # 다음 주기(last_added_date_index는 힙에 들어간 후보의 수만큼 증가함)부터 다시 for문에 들어가 계산함.
+
     answer = 0
     last_added_date_index = 0
     max_heap = []
@@ -30,6 +37,7 @@ def get_minimum_count_of_overseas_supply(stock, dates, supplies, k):
         stock += -heappop
 
     return answer
+
 
 print(get_minimum_count_of_overseas_supply(ramen_stock, supply_dates, supply_supplies, supply_recover_k))
 print("정답 = 2 / 현재 풀이 값 = ", get_minimum_count_of_overseas_supply(4, [4, 10, 15], [20, 5, 10], 30))
