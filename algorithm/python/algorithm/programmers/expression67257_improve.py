@@ -53,6 +53,7 @@ def solution(expression):
     splitted_expression = get_splitted_expression(expression)
 
     for ops in operator_list:
+        # + - *
         heapq.heappush(answer, calc_by_splitted_expression_and_operator_list(splitted_expression, ops) * -1)
 
     return heapq.heappop(answer) * -1
