@@ -29,5 +29,4 @@ for i in range(n):
             dp[i] = dp[k]
     dp[i] += 1;
 
-print(dp)
 print(max(dp))
