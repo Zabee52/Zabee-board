@@ -8,11 +8,31 @@
 
 # 1과 달리 N이 100만까지 주어진다.
 
-n = int(input())
-a = []
-for _ in range(n):
-    i = int(input())
-    if i not in a:
-        a.append(i)
+# 이 문제는 어떻게 푸는거야?
 
-print(a)
+n = int(input())
+a = list(map(int, input().split()))
+
+# 수열 저장을 위한 리스트 변수. 최초 if 에서 비교를 위해 0을 줌.
+lis = [0]
+for ai in a:
+    # 1. ai가 lis 의 최댓값(마지막 값)보다 높음 = 수열이 성립. 즉시 append
+    if lis[-1] < ai:
+        lis.append(ai)
+    else:
+        # 2. 아닐 경우 lis 로 이분탐색 시작.
+        min_len = 0
+        max_len = len(lis)
+
+        while min_len < max_len:
+            mid = (max_len + min_len) // 2
+
+            # 3. lis[mid]가 ai보다 작음 = 
+            if lis[mid] < ai:
+                min_len = mid + 1
+            else:
+                max_len = mid
+            lis[max_len] = ai
+
+# 처음에 0을 줬기 때문에 1을 빼줌.
+print(len(lis) - 1)
