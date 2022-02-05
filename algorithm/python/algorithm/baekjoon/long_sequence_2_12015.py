@@ -21,18 +21,18 @@ for ai in a:
         lis.append(ai)
     else:
         # 2. 아닐 경우 lis 로 이분탐색 시작.
-        min_len = 0
-        max_len = len(lis)
+        left = 0
+        right = len(lis)
 
-        while min_len < max_len:
-            mid = (max_len + min_len) // 2
+        while left < right:
+            mid = (right + left) // 2
 
-            # 3. lis[mid]가 ai보다 작음 = 
+            # 3. lis[mid]가 ai 보다 작음 = min_len 을 끌어올리고
             if lis[mid] < ai:
-                min_len = mid + 1
+                left = mid + 1
             else:
-                max_len = mid
-            lis[max_len] = ai
+                right = mid
+        lis[right] = ai
 
 # 처음에 0을 줬기 때문에 1을 빼줌.
 print(len(lis) - 1)
