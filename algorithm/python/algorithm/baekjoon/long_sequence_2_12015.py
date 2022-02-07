@@ -27,11 +27,12 @@ for ai in a:
         while left < right:
             mid = (right + left) // 2
 
-            # 3. lis[mid]가 ai 보다 작음 = min_len 을 끌어올리고
+            # 3. lis[mid]가 ai 보다 작음 = min_len 을 끌어올리기
             if lis[mid] < ai:
                 left = mid + 1
             else:
                 right = mid
+        # 4. 이분탐색 결과값을 대체.
         lis[right] = ai
 
 # 처음에 0을 줬기 때문에 1을 빼줌.
