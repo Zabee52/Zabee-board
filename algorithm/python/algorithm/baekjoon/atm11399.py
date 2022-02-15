@@ -25,7 +25,7 @@
 
 # https://www.acmicpc.net/problem/11399
 
-# 오름차순 정렬하고 쌓아나가면서 더하면 되는 심플한 문제였다.
+# 오름차순 정렬하고 쌓아나가면서 더하면 되는 심플한 문제였다...
 
 n = int(input())
 person_list = []
