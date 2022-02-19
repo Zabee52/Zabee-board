@@ -2,7 +2,7 @@ package Programmers;
 
 import java.util.Locale;
 
-public class Tes {
+public class ModeCharacter {
     public static String solution(String s) {
         s = s.toLowerCase(Locale.ROOT);
         int[] arr = new int[26];
